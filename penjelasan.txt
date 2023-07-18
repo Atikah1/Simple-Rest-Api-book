@@ -1,0 +1,20 @@
+kita membuat sebuah aplikasi REST API sederhana dengan menggunakan framework Echo. Aplikasi ini memiliki beberapa endpoint untuk mengelola data buku.
+
+Pertama, kita mendefinisikan struktur data Book yang memiliki tiga properti: ID, Title, dan Author. Properti ini diannotasikan dengan json:"..." untuk mengatur format serialisasi JSON.
+
+Kemudian, kita mendefinisikan slice books yang akan digunakan untuk menyimpan daftar buku.
+
+Fungsi main adalah fungsi utama yang akan dijalankan saat menjalankan aplikasi. Di dalamnya, kita membuat instance dari objek Echo dengan echo.New().
+
+Setelah itu, kita menginisialisasi data awal dengan menambahkan dua buku ke slice books.
+
+Selanjutnya, kita mendefinisikan empat endpoint:
+
+    GET /books: Endpoint ini digunakan untuk mendapatkan semua buku dalam format JSON. Fungsi getBooks akan mengembalikan seluruh data buku dalam slice books.
+    GET /books/:id: Endpoint ini digunakan untuk mendapatkan detail buku berdasarkan ID. Fungsi getBook akan mencari buku dengan ID yang sesuai dalam slice books dan mengembalikan data buku tersebut dalam format JSON.
+    POST /books: Endpoint ini digunakan untuk membuat buku baru. Data buku dikirimkan dalam format JSON dalam body permintaan. Fungsi createBook akan mengambil data buku dari body permintaan, menambahkannya ke slice books, dan mengembalikan data buku yang baru ditambahkan dalam format JSON.
+    PUT /books/:id: Endpoint ini digunakan untuk memperbarui buku berdasarkan ID. Data buku yang diperbarui dikirimkan dalam format JSON dalam body permintaan. Fungsi updateBook akan mencari buku dengan ID yang sesuai dalam slice books, memperbarui data buku tersebut dengan data yang baru, dan mengembalikan data buku yang diperbarui dalam format JSON.
+
+Terakhir, kita menjalankan server Echo dengan e.Start(":8000"), sehingga API dapat diakses melalui http://localhost:8000.
+
+Dengan menggunakan Postman atau alat serupa, Anda dapat menguji endpoint-endpoint tersebut untuk melihat respons dan hasil operasi yang sesuai.
